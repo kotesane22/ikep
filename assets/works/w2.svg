@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="コピー・文章サンプル（差し替え用）">
+  <rect width="600" height="600" fill="#211c14"/>
+  <rect x="70" y="90" width="150" height="150" rx="6" fill="#e0a63c"/>
+  <text x="100" y="205" font-family="Georgia,serif" font-size="120" fill="#15120e">A</text>
+  <g fill="#e7dcc4">
+    <rect x="250" y="110" width="270" height="16" rx="8"/>
+    <rect x="250" y="146" width="230" height="16" rx="8" opacity="0.75"/>
+    <rect x="250" y="182" width="250" height="16" rx="8" opacity="0.55"/>
+  </g>
+  <g fill="#b3a892">
+    <rect x="70" y="300" width="460" height="13" rx="6"/>
+    <rect x="70" y="332" width="430" height="13" rx="6"/>
+    <rect x="70" y="364" width="460" height="13" rx="6"/>
+    <rect x="70" y="396" width="300" height="13" rx="6"/>
+  </g>
+  <rect x="70" y="450" width="120" height="10" rx="5" fill="#e0a63c"/>
+  <text x="560" y="566" text-anchor="end" font-family="Georgia,serif" font-size="22" fill="#857b69">SAMPLE</text>
+</svg>
