@@ -20,10 +20,14 @@ body {
 img, svg { max-width: 100%; height: auto; display: block; }
 a { color: var(--c-link); text-decoration: none; }
 a:hover { color: var(--c-brass); }
-h1, h2, h3 { margin: 0; color: var(--c-heading); line-height: var(--lh-tight); font-weight: var(--fw-semi); }
+h1, h2, h3 { margin: 0; color: var(--c-heading); line-height: var(--lh-tight); font-weight: var(--fw-semi); text-wrap: balance; }
 p { margin: 0; }
 ::selection { background: var(--c-brass); color: var(--c-paper); }
 :focus-visible { outline: 2px solid var(--c-brass); outline-offset: 3px; }
+
+/* アンカー着地：固定ヘッダー分の余白。行組みの美化 */
+section[id], [id].section { scroll-margin-top: 92px; }
+.hero__lead, .lede p, .statement__text, .service__meta, .profile__body p, .contact__lead { text-wrap: pretty; }
 
 /* ---- layout helpers ---- */
 .wrap { width: 100%; max-width: var(--w-max); margin-inline: auto; padding-inline: var(--gutter); }
@@ -63,6 +67,9 @@ p { margin: 0; }
 .nav__links { display: flex; align-items: center; gap: clamp(var(--sp-4), 2.6vw, var(--sp-6)); }
 .nav__links a { font-family: var(--ff-sans); color: var(--c-ink-soft); font-size: var(--fs-small); font-weight: var(--fw-medium); }
 .nav__links a:hover { color: var(--c-heading); }
+.nav__links a:not(.is-cta) { position: relative; }
+.nav__links a:not(.is-cta)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -5px; height: 1px; background: var(--c-brass); transition: right var(--dur) var(--ease); }
+.nav__links a:not(.is-cta):hover::after { right: 0; }
 .nav__links a.is-cta { color: var(--c-cta-ink); background: var(--c-heading); padding: 0.55em 1.3em; border-radius: var(--r-pill); }
 .nav__links a.is-cta:hover { background: var(--c-brass-deep); color: var(--c-paper); }
 .nav__toggle { display: none; }
@@ -115,7 +122,7 @@ p { margin: 0; }
    masthead + hero（表紙）
    ========================================================= */
 .masthead { border-bottom: 1px solid var(--c-line); }
-.masthead__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-4); padding-block: var(--sp-3); font-family: var(--ff-sans); font-size: var(--fs-label); letter-spacing: var(--ls-wide); color: var(--c-ink-faint); text-transform: uppercase; }
+.masthead__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-4); padding-block: var(--sp-3); font-family: var(--ff-sans); font-size: var(--fs-label); letter-spacing: var(--ls-wide); color: var(--c-ink-faint); }
 .masthead__row .em { color: var(--c-brass); }
 
 .hero { padding-block: clamp(var(--sp-8), 11vw, var(--sp-10)); }
