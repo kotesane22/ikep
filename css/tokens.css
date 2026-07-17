@@ -1,67 +1,76 @@
 /* =========================================================
-   design tokens — ikeP portfolio v2
-   「ikeP通信」デザインシステム踏襲：オフブラック × アンバーゴールド × セリフ
+   design tokens — ikeP portfolio v3
+   コンセプト：上質な季刊誌「ikeP通信」
+   温かいアイボリーの紙 × エスプレッソの墨 × 真鍮の一点。
    装飾差し替えは原則このファイルの変数だけで完結する。
    ========================================================= */
 
 :root {
-  /* ---- base: 温かいオフブラック（純黒を避け、わずかに赤茶を含む） ---- */
-  --c-bg:        #15120e;
-  --c-bg-raise:  #1e1a14;   /* カード等のわずかな浮き */
-  --c-bg-raise2: #272119;
-  --c-ink-invert:#15120e;   /* 明色面の上に載る文字（＝背景色） */
+  /* ---- paper / surfaces（温かいアイボリー） ---- */
+  --c-paper:   #f2ebdd;   /* 基調の紙 */
+  --c-paper-2: #f8f2e6;   /* 浮き（カード等） */
+  --c-paper-3: #ece2d0;   /* 沈み（章の交互背景） */
+  --c-paper-ink: #201a13; /* 濃色面（便り等）の背景 */
 
-  /* ---- foreground: 温かいクリーム系 ---- */
-  --c-heading: #f5efe3;
-  --c-text:    #e4dccd;
-  --c-muted:   #b3a892;
-  --c-faint:   #857b69;
+  /* ---- ink（温かい墨） ---- */
+  --c-ink:        #2a2219;   /* 本文 */
+  --c-heading:    #1c150d;   /* 見出し */
+  --c-ink-soft:   #6d6252;   /* 補足 */
+  --c-ink-faint:  #9c917d;   /* 罫寄り・キャプション */
+  --c-on-dark:    #f2ebdd;   /* 濃色面の上の文字 */
+  --c-on-dark-soft:#c8bda6;
 
-  /* ---- accent: アンバーゴールド（点で効かせる） ---- */
-  --c-amber:        #e0a63c;
-  --c-amber-bright: #f2bb51;
-  --c-amber-deep:   #b97e22;
-  --c-amber-soft:   rgba(224, 166, 60, 0.13);
-  --c-amber-line:   rgba(224, 166, 60, 0.34);
+  /* ---- brass（真鍮：点で効かせる） ---- */
+  --c-brass:      #a9814e;
+  --c-brass-deep: #866237;
+  --c-brass-bright:#c29a63;
+  --c-brass-soft: rgba(169, 129, 78, 0.12);
+  --c-brass-line: rgba(169, 129, 78, 0.42);
 
-  /* ---- lines / hairlines ---- */
-  --c-line:      rgba(233, 219, 193, 0.12);
-  --c-line-soft: rgba(233, 219, 193, 0.07);
+  /* ---- hairlines ---- */
+  --c-line:      rgba(42, 34, 25, 0.16);
+  --c-line-soft: rgba(42, 34, 25, 0.09);
+  --c-line-dark: rgba(242, 235, 221, 0.16);
 
   /* ---- semantic ---- */
-  --c-cta-bg:   var(--c-amber);
-  --c-cta-ink:  #1a1509;
-  --c-link:     var(--c-amber-bright);
+  --c-bg:      var(--c-paper);
+  --c-text:    var(--c-ink);
+  --c-cta-bg:  var(--c-heading);
+  --c-cta-ink: var(--c-paper);
+  --c-link:    var(--c-brass-deep);
 
   /* ---- typography ---- */
-  --ff-jp:      "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
-  --ff-display: "Playfair Display", "Noto Serif JP", serif;
-  --ff-base:    var(--ff-jp);
+  --ff-display: "Fraunces", "Shippori Mincho", "Noto Serif JP", serif;
+  --ff-mincho:  "Shippori Mincho", "Noto Serif JP", "Yu Mincho", serif;
+  --ff-sans:    "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ff-base:    var(--ff-sans);
 
-  --fs-hero:  clamp(2.4rem, 7vw, 5rem);
-  --fs-h1:    clamp(1.9rem, 4.6vw, 3rem);
-  --fs-h2:    clamp(1.5rem, 3.4vw, 2.15rem);
-  --fs-h3:    clamp(1.15rem, 2vw, 1.4rem);
-  --fs-lead:  clamp(1.06rem, 2.1vw, 1.3rem);
+  --fs-hero:  clamp(2.4rem, 6vw, 4.4rem);
+  --fs-h1:    clamp(2rem, 5vw, 3.4rem);
+  --fs-h2:    clamp(1.55rem, 3.6vw, 2.4rem);
+  --fs-h3:    clamp(1.2rem, 2.1vw, 1.5rem);
+  --fs-lead:  clamp(1.1rem, 2.2vw, 1.4rem);
   --fs-body:  1.02rem;
   --fs-small: 0.9rem;
   --fs-cap:   0.8rem;
-  --fs-index: 0.82rem;   /* 通し番号 01 / 02 など（唯一許す欧字装飾） */
+  --fs-label: 0.72rem;   /* 章ラベル（広トラッキング） */
 
-  --lh-tight: 1.12;
-  --lh-snug:  1.45;
-  --lh-body:  1.95;      /* セリフ本文はゆったり */
+  --lh-tight: 1.08;
+  --lh-snug:  1.4;
+  --lh-body:  1.95;
 
+  --fw-thin:   300;
   --fw-normal: 400;
   --fw-medium: 500;
   --fw-semi:   600;
   --fw-bold:   700;
   --fw-black:  900;
 
-  --ls-tight: -0.01em;
-  --ls-wide:  0.22em;    /* 小見出しのトラッキング */
+  --ls-tight: -0.015em;
+  --ls-label: 0.28em;
+  --ls-wide:  0.12em;
 
-  /* ---- spacing（8pxベース・余白広め） ---- */
+  /* ---- spacing（余白広め・紙面的） ---- */
   --sp-1: 0.25rem;
   --sp-2: 0.5rem;
   --sp-3: 0.75rem;
@@ -74,24 +83,24 @@
   --sp-10: 10rem;
 
   /* ---- layout ---- */
-  --w-max:  1180px;
-  --w-text: 64ch;
-  --gutter: clamp(1.4rem, 5.5vw, 4rem);
+  --w-max:  1200px;
+  --w-text: 62ch;
+  --gutter: clamp(1.4rem, 6vw, 4.5rem);
 
-  /* ---- radius（控えめ・紙面的に角は立てる） ---- */
-  --r-sm: 4px;
-  --r-md: 8px;
-  --r-lg: 14px;
+  /* ---- radius（紙面は角を立てる：控えめ） ---- */
+  --r-sm: 3px;
+  --r-md: 6px;
+  --r-lg: 12px;
   --r-pill: 999px;
 
-  /* ---- shadow（暗背景なので影より境界で見せる） ---- */
-  --sh-1: 0 1px 0 rgba(0,0,0,0.4);
-  --sh-2: 0 20px 50px rgba(0, 0, 0, 0.45);
-  --sh-glow: 0 0 0 1px var(--c-amber-line), 0 24px 60px rgba(0,0,0,0.5);
+  /* ---- shadow（紙の落ち影：ごく淡く） ---- */
+  --sh-1: 0 1px 2px rgba(42, 34, 25, 0.06);
+  --sh-2: 0 18px 44px rgba(42, 34, 25, 0.12);
+  --sh-3: 0 30px 70px rgba(42, 34, 25, 0.16);
 
   /* ---- motion ---- */
-  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --dur: 260ms;
+  --ease: cubic-bezier(0.22, 0.7, 0.24, 1);
+  --dur: 300ms;
 
   --z-header: 100;
 }

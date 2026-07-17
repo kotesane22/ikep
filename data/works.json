@@ -1,5 +1,5 @@
 {
-  "_note": "作品を増やすときは items 配列に1オブジェクト追記するだけ。category は categories の id を使う。thumb は assets/works/ 配下の画像パス。",
+  "_note": "作品を増やすときは items に1件追記するだけ。category は categories の id（ai-image / copy / content）。size は誌面のサイズ差用に lg / wide / tall（省略で通常）。thumb は assets/works/ 配下。",
   "categories": [
     { "id": "ai-image", "label": "AI画像" },
     { "id": "copy", "label": "コピー・文章" },
@@ -8,33 +8,68 @@
   "items": [
     {
       "id": "sample-001",
-      "title": "AIビジュアル制作サンプル",
+      "title": "AIビジュアル・シリーズ",
       "category": "ai-image",
+      "size": "lg",
       "thumb": "assets/works/w1.svg",
-      "tags": ["仮データ", "画像生成"],
-      "description": "テーマからトーンまで詰めて仕上げたAI画像の一例。ここに実制作を差し替えます。",
+      "description": "テーマと世界観を詰めて仕上げたAI画像の連作。実制作に差し替え予定。",
+      "url": "",
+      "date": "2026-06"
+    },
+    {
+      "id": "sample-002",
+      "title": "連載のアートワーク",
+      "category": "content",
+      "thumb": "assets/works/w3.svg",
+      "description": "note連載に添えるビジュアルとレイアウト。",
       "url": "",
       "date": "2026-05"
     },
     {
-      "id": "sample-002",
-      "title": "キャッチコピー / 文章サンプル",
+      "id": "sample-003",
+      "title": "ブランドコピー一式",
       "category": "copy",
       "thumb": "assets/works/w2.svg",
-      "tags": ["仮データ", "コピー"],
-      "description": "商品やサービスの魅力を一行に。コピーライティングの実績サンプル。",
+      "description": "タグラインから本文まで、声のトーンを設計。",
       "url": "",
       "date": "2026-04"
     },
     {
-      "id": "sample-003",
-      "title": "AI×コンテンツ制作サンプル",
+      "id": "sample-004",
+      "title": "キャンペーン設計",
       "category": "content",
-      "thumb": "assets/works/w3.svg",
-      "tags": ["仮データ", "コンテンツ"],
-      "description": "note記事やSNS運用など、AIを絡めたコンテンツ制作の一例。",
+      "size": "wide",
+      "thumb": "assets/works/w6.svg",
+      "description": "企画・コピー・ビジュアルを一貫させたSNSキャンペーン。",
       "url": "",
       "date": "2026-03"
+    },
+    {
+      "id": "sample-005",
+      "title": "キービジュアル",
+      "category": "ai-image",
+      "thumb": "assets/works/w4.svg",
+      "description": "生成AIで探索したキービジュアルの一案。",
+      "url": "",
+      "date": "2026-02"
+    },
+    {
+      "id": "sample-006",
+      "title": "商品キャッチコピー",
+      "category": "copy",
+      "thumb": "assets/works/w5.svg",
+      "description": "商品の魅力を一行に凝縮したコピー群。",
+      "url": "",
+      "date": "2026-01"
+    },
+    {
+      "id": "sample-007",
+      "title": "アイコン・ロゴ試作",
+      "category": "ai-image",
+      "thumb": "assets/works/w7.svg",
+      "description": "アイコンとロゴマークの試作スケッチ。",
+      "url": "",
+      "date": "2025-12"
     }
   ]
 }

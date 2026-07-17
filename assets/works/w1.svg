@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="AI画像サンプル（差し替え用）">
-  <rect width="600" height="600" fill="#1b1710"/>
-  <g fill="none" stroke="#e0a63c" opacity="0.85">
-    <circle cx="300" cy="300" r="60" stroke-width="2"/>
-    <circle cx="300" cy="300" r="120" stroke-width="1.5" opacity="0.6"/>
-    <circle cx="300" cy="300" r="185" stroke-width="1" opacity="0.4"/>
-  </g>
-  <path d="M300 60c70 60 70 420 0 480" fill="none" stroke="#f2bb51" stroke-width="2" opacity="0.5"/>
-  <path d="M300 60c-70 60-70 420 0 480" fill="none" stroke="#f2bb51" stroke-width="2" opacity="0.5"/>
-  <circle cx="300" cy="300" r="16" fill="#e0a63c"/>
-  <g fill="#e7dcc4" opacity="0.9">
-    <circle cx="140" cy="150" r="4"/><circle cx="470" cy="180" r="4"/><circle cx="450" cy="440" r="4"/><circle cx="160" cy="450" r="4"/>
-  </g>
-  <text x="560" y="566" text-anchor="end" font-family="Georgia,serif" font-size="22" fill="#857b69">SAMPLE</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-label="作品サンプル（差し替え用プレースホルダー）"><rect width="900" height="900" fill="#ece2d0"/><g fill="none" stroke="#2a2219" stroke-width="2"><circle cx="450" cy="430" r="70" opacity="0.81"/><circle cx="450" cy="430" r="140" opacity="0.61"/><circle cx="450" cy="430" r="210" opacity="0.42"/><circle cx="450" cy="430" r="280" opacity="0.22"/></g><circle cx="450" cy="430" r="26" fill="#a9814e"/><text x="860" y="860" text-anchor="end" font-family="Georgia,serif" font-style="italic" font-size="30" fill="#9c917d">sample</text></svg>

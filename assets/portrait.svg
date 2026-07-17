@@ -1,56 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="ikeP のポートレート（AI生成・仮）">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="ikeP のポートレート（仮）">
   <defs>
-    <clipPath id="pf"><rect width="400" height="480" rx="2"/></clipPath>
+    <clipPath id="pf"><rect width="400" height="500"/></clipPath>
     <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f2bb51"/>
-      <stop offset="1" stop-color="#b97e22"/>
+      <stop offset="0" stop-color="#c29a63"/>
+      <stop offset="1" stop-color="#866237"/>
     </linearGradient>
   </defs>
   <g clip-path="url(#pf)">
-    <rect width="400" height="480" fill="#1b1710"/>
-    <rect width="400" height="480" fill="#211c14"/>
+    <rect width="400" height="500" fill="#efe6d6"/>
 
-    <!-- 背後のAIノード（点と線・控えめ） -->
-    <g stroke="#e0a63c" stroke-width="1" opacity="0.28">
-      <line x1="300" y1="70" x2="352" y2="120"/>
-      <line x1="352" y1="120" x2="316" y2="176"/>
-      <line x1="60" y1="330" x2="104" y2="300"/>
+    <!-- 背後のAIノード（ごく控えめ・真鍮の点） -->
+    <g stroke="#a9814e" stroke-width="1" opacity="0.4">
+      <line x1="300" y1="70" x2="346" y2="118"/>
+      <line x1="346" y1="118" x2="314" y2="168"/>
     </g>
-    <g fill="#e0a63c" opacity="0.6">
-      <circle cx="300" cy="70" r="3"/><circle cx="352" cy="120" r="2.4"/>
-      <circle cx="316" cy="176" r="2"/><circle cx="104" cy="300" r="2.4"/>
+    <g fill="#a9814e" opacity="0.75">
+      <circle cx="300" cy="70" r="3"/><circle cx="346" cy="118" r="2.2"/><circle cx="314" cy="168" r="1.8"/>
     </g>
 
     <!-- 肩 -->
-    <path d="M60 480c0-78 60-120 140-120s140 42 140 120z" fill="#e7dcc4"/>
-    <path d="M60 480c0-78 60-120 140-120s140 42 140 120z" fill="url(#rim)" opacity="0.0"/>
+    <path d="M64 500c0-86 61-132 136-132s136 46 136 132z" fill="#2a2219"/>
     <!-- 首 -->
-    <rect x="172" y="300" width="56" height="90" rx="24" fill="#d9cdb2"/>
+    <rect x="172" y="300" width="56" height="86" rx="24" fill="#c9b38f"/>
     <!-- 頭 -->
-    <ellipse cx="200" cy="238" rx="86" ry="100" fill="#ece1c8"/>
-    <!-- 髪（面で） -->
-    <path d="M116 236c-6-70 40-118 84-118s90 46 84 118c-10-56-44-84-84-84s-74 28-84 84z" fill="#2a231a"/>
-    <path d="M116 236c-6-70 40-118 84-118 18 0 34 6 47 16-16-8-33-8-47-2-36 16-52 52-51 96z" fill="#3a3123"/>
-
-    <!-- リムライト（右側アンバー） -->
-    <path d="M286 238c0 56-38 100-86 100 40-10 70-52 70-100s-30-90-70-100c48 0 86 44 86 100z" fill="url(#rim)" opacity="0.55"/>
-
-    <!-- 顔パーツ（最小・面で） -->
-    <g fill="#2a231a">
-      <ellipse cx="168" cy="232" rx="6.5" ry="8"/>
-      <ellipse cx="232" cy="232" rx="6.5" ry="8"/>
-    </g>
-    <path d="M180 280c12 12 28 12 40 0" fill="none" stroke="#b58a52" stroke-width="4" stroke-linecap="round"/>
-
-    <!-- 走査線（AIの気配） -->
-    <g stroke="#15120e" stroke-width="1" opacity="0.10">
-      <line x1="0" y1="150" x2="400" y2="150"/>
-      <line x1="0" y1="180" x2="400" y2="180"/>
-      <line x1="0" y1="210" x2="400" y2="210"/>
-      <line x1="0" y1="240" x2="400" y2="240"/>
-      <line x1="0" y1="270" x2="400" y2="270"/>
-      <line x1="0" y1="300" x2="400" y2="300"/>
-      <line x1="0" y1="330" x2="400" y2="330"/>
-    </g>
+    <ellipse cx="200" cy="236" rx="86" ry="100" fill="#d8c7a8"/>
+    <!-- 髪 -->
+    <path d="M114 234c-6-72 42-120 86-120s92 48 86 120c-10-58-44-86-86-86s-76 28-86 86z" fill="#2a2219"/>
+    <path d="M114 234c-6-72 42-120 86-120 18 0 34 6 47 16-16-8-33-8-47-2-36 16-52 54-51 98z" fill="#3a2f22"/>
+    <!-- リムライト（右・真鍮） -->
+    <path d="M286 236c0 56-38 100-86 100 40-10 70-52 70-100s-30-90-70-100c48 0 86 44 86 100z" fill="url(#rim)" opacity="0.5"/>
+    <!-- 顔（最小） -->
+    <g fill="#2a2219"><ellipse cx="170" cy="230" rx="5.5" ry="7"/><ellipse cx="230" cy="230" rx="5.5" ry="7"/></g>
+    <path d="M182 276c11 10 25 10 36 0" fill="none" stroke="#a9814e" stroke-width="4" stroke-linecap="round"/>
   </g>
 </svg>

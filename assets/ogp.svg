@@ -1,23 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="ikeP portfolio OGP">
-  <rect width="1200" height="630" fill="#15120e"/>
-  <rect x="0" y="0" width="1200" height="6" fill="#e0a63c"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="ikeP 通信 OGP">
+  <rect width="1200" height="630" fill="#f2ebdd"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#a9814e"/>
 
-  <!-- 右：ポートレートフレーム -->
-  <rect x="774" y="74" width="356" height="482" rx="16" fill="none" stroke="#e0a63c" stroke-opacity="0.34"/>
-  <rect x="786" y="86" width="332" height="458" rx="10" fill="#1f1a14"/>
+  <!-- 右：ポートレートプレート -->
+  <rect x="774" y="74" width="356" height="482" rx="6" fill="none" stroke="#a9814e" stroke-opacity="0.5"/>
+  <rect x="786" y="86" width="332" height="458" rx="3" fill="#f8f2e6"/>
+  <clipPath id="c"><rect x="786" y="86" width="332" height="458" rx="3"/></clipPath>
   <g clip-path="url(#c)">
-    <clipPath id="c"><rect x="786" y="86" width="332" height="458" rx="10"/></clipPath>
-    <path d="M872 544c0-70 36-108 80-108s80 38 80 108z" fill="#e7dcc4"/>
-    <ellipse cx="952" cy="330" rx="70" ry="82" fill="#ece1c8"/>
-    <path d="M884 328c-4-56 32-92 68-92s72 36 68 92c-8-44-36-64-68-64s-60 20-68 64z" fill="#2a231a"/>
-    <path d="M1022 330c0 46-30 82-70 82 32-8 56-42 56-82s-24-74-56-82c40 0 70 36 70 82z" fill="#e0a63c" opacity="0.5"/>
-    <g fill="#2a231a"><ellipse cx="928" cy="326" rx="5" ry="7"/><ellipse cx="976" cy="326" rx="5" ry="7"/></g>
+    <path d="M872 544c0-72 36-110 80-110s80 38 80 110z" fill="#2a2219"/>
+    <ellipse cx="952" cy="330" rx="70" ry="82" fill="#d8c7a8"/>
+    <path d="M884 328c-4-56 32-92 68-92s72 36 68 92c-8-44-36-64-68-64s-60 20-68 64z" fill="#2a2219"/>
+    <path d="M1022 330c0 46-30 82-70 82 32-8 56-42 56-82s-24-74-56-82c40 0 70 36 70 82z" fill="#a9814e" opacity="0.5"/>
+    <g fill="#2a2219"><ellipse cx="928" cy="326" rx="5" ry="7"/><ellipse cx="976" cy="326" rx="5" ry="7"/></g>
+    <path d="M934 360c11 8 25 8 36 0" fill="none" stroke="#a9814e" stroke-width="4" stroke-linecap="round"/>
   </g>
 
   <!-- 左：テキスト -->
-  <text x="90" y="300" font-family="'Playfair Display',serif" font-size="120" font-weight="700" fill="#f5efe3">ikeP</text>
-  <rect x="94" y="330" width="120" height="6" rx="3" fill="#e0a63c"/>
-  <text x="94" y="392" font-family="'Noto Serif JP',serif" font-size="34" font-weight="600" fill="#e4dccd">AIを、あなたの言葉に翻訳する。</text>
-  <text x="94" y="440" font-family="'Noto Serif JP',serif" font-size="26" fill="#b3a892">AI×コミュニケーション ／ コピー ／ AI画像生成</text>
-  <text x="94" y="500" font-family="'Playfair Display',serif" font-size="20" fill="#857b69" letter-spacing="2">Nagano, Komoro — Freelance</text>
+  <text x="90" y="200" font-family="'Noto Sans JP',sans-serif" font-size="22" letter-spacing="6" fill="#9c917d">IKEP 通信 — 小諸だより</text>
+  <text x="88" y="310" font-family="'Fraunces','Shippori Mincho',serif" font-size="118" font-weight="600" fill="#1c150d">ikeP</text>
+  <rect x="94" y="340" width="120" height="6" rx="3" fill="#a9814e"/>
+  <text x="94" y="404" font-family="'Shippori Mincho',serif" font-size="36" font-weight="600" fill="#2a2219">AIを、あなたの言葉に翻訳する。</text>
+  <text x="94" y="452" font-family="'Shippori Mincho',serif" font-size="26" fill="#6d6252">AI×コミュニケーション ／ コピー ／ AI画像生成</text>
+  <text x="94" y="512" font-family="'Fraunces',serif" font-style="italic" font-size="22" fill="#9c917d">Nagano, Komoro — Freelance</text>
 </svg>

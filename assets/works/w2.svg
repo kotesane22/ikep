@@ -1,18 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="コピー・文章サンプル（差し替え用）">
-  <rect width="600" height="600" fill="#211c14"/>
-  <rect x="70" y="90" width="150" height="150" rx="6" fill="#e0a63c"/>
-  <text x="100" y="205" font-family="Georgia,serif" font-size="120" fill="#15120e">A</text>
-  <g fill="#e7dcc4">
-    <rect x="250" y="110" width="270" height="16" rx="8"/>
-    <rect x="250" y="146" width="230" height="16" rx="8" opacity="0.75"/>
-    <rect x="250" y="182" width="250" height="16" rx="8" opacity="0.55"/>
-  </g>
-  <g fill="#b3a892">
-    <rect x="70" y="300" width="460" height="13" rx="6"/>
-    <rect x="70" y="332" width="430" height="13" rx="6"/>
-    <rect x="70" y="364" width="460" height="13" rx="6"/>
-    <rect x="70" y="396" width="300" height="13" rx="6"/>
-  </g>
-  <rect x="70" y="450" width="120" height="10" rx="5" fill="#e0a63c"/>
-  <text x="560" y="566" text-anchor="end" font-family="Georgia,serif" font-size="22" fill="#857b69">SAMPLE</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-label="作品サンプル（差し替え用プレースホルダー）"><rect width="900" height="900" fill="#ece2d0"/><rect x="90" y="110" width="150" height="150" fill="#2a2219"/><text x="118" y="235" font-family="Georgia,serif" font-size="150" fill="#f6efe1">A</text><g fill="#2a2219"><rect x="280" y="130" width="520" height="16" rx="8" opacity="0.85"/><rect x="280" y="174" width="470" height="16" rx="8" opacity="0.85"/><rect x="280" y="218" width="510" height="16" rx="8" opacity="0.85"/></g><g fill="#9c917d"><rect x="90" y="360" width="720" height="12" rx="6"/><rect x="90" y="406" width="580" height="12" rx="6"/><rect x="90" y="452" width="720" height="12" rx="6"/><rect x="90" y="498" width="580" height="12" rx="6"/><rect x="90" y="544" width="720" height="12" rx="6"/></g><rect x="90" y="600" width="150" height="12" rx="6" fill="#a9814e"/><text x="860" y="860" text-anchor="end" font-family="Georgia,serif" font-style="italic" font-size="30" fill="#9c917d">sample</text></svg>
