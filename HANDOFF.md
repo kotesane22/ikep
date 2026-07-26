@@ -21,10 +21,21 @@ css/style.css     レイアウト/コンポーネント（値は極力 tokens �
 js/main.js        ナビ開閉・スクロール表示(reveal)・年号。冒頭で html に .has-js を付与
 js/works.js       data/works.json を読み、作品ギャラリー＋フィルタを描画
 js/shop.js        data/shop.json を読み、「販売中」帯を描画
+js/profile.js     data/profile.json を読み、プロフィール（項目表・本文・実績）を描画
+js/contact.js     data/contact.json を読み、問い合わせ導線を描画
 data/works.json   作品データ（追記だけで増える）
 data/shop.json    販売リンク
+data/profile.json プロフィール本文・項目表・実績
+data/contact.json 問い合わせ導線（url が空なら「準備中」表示でリンクにしない）
 assets/           favicon / ogp(png+svg) / portrait / works/ サムネ(SVG)
 ```
+
+**重要**：文言・リンク・作品は**すべて `data/*.json` 側にある**。
+`index.html` にはマウント点（`[data-works]` / `[data-shop]` /
+`[data-profile-facts]` / `[data-profile-body]` / `[data-contact]`）と、
+見出し・レイアウトなどの固定要素だけが残っている。
+**テキストを直すときは HTML ではなく JSON を編集すること。**
+描画は4つのJSが同じパターン（fetch → items を map → innerHTML、エスケープ必須）。
 - **ビルド不要**。ローカルは `python3 -m http.server` 経由で（`file://` 直開きは fetch が失敗）。
 
 ## 2. デザイントークン（`css/tokens.css`）— 見た目はここで変える
@@ -50,6 +61,18 @@ assets/           favicon / ogp(png+svg) / portrait / works/ サムネ(SVG)
 - 作品を増やす＝`items` に1件追記するだけ。`date` 降順で自動整列。
 ### data/shop.json
 - `items[].name` と `url`（空だと「準備中」表示）。
+
+### data/contact.json
+```jsonc
+{ "items": [ { "id":"coconala", "name":"ココナラ", "desc":"スキル出品・お仕事のご依頼", "url":"" } ] }
+```
+- `url` が空 → `<div class="channel" aria-disabled="true">` ＋「準備中」（リンクにしない）
+- `url` あり → `<a class="channel" target="_blank" rel="noopener">` ＋ 矢印
+
+### data/profile.json
+- `facts[]`（`k`/`v` の項目表）、`lead`（`\n` が `<br>` になる）、
+  `body[]`（段落）、`note`（補足・小さい文字）、`creds[]`（`t`/`d`）。
+- いずれもエスケープ済みで描画されるため、値にHTMLタグを書いても効かない（仕様）。
 
 ## 4. フォント
 - Google Fonts を `index.html` の1ブロックで読み込み（Fraunces / Shippori Mincho / Noto Sans JP）。
@@ -101,6 +124,9 @@ cd apps/portfolio && python3 -m http.server 8000
 > 制約：
 > - 静的HTML/CSS/JSのまま（フレームワーク不使用、GitHub Pages前提）。
 > - 見た目の変更は原則 `css/tokens.css` のCSS変数で行い、直書きの色/余白を増やさない。
+> - 文言・リンク・作品は `data/*.json` にある。**HTMLにテキストを書き戻さないこと**
+>   （`index.html` のマウント点 `[data-works]` `[data-shop]` `[data-profile-facts]`
+>   `[data-profile-body]` `[data-contact]` を削除・改名しない）。JS描画側は必ずエスケープを維持。
 > - 禁止：紫グラデ、絵文字装飾、無意味な英語見出しの乱発、「羅針盤/設計図」等の
 >   テンプレ比喩、全セクション均一密度。
 > - `.reveal` の `.has-js` ガード（JS無効時に内容が見える機構）を壊さない。

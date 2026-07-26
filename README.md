@@ -17,20 +17,35 @@ apps/portfolio/
 ├── js/
 │   ├── main.js     # 共通UI（ナビ開閉・スクロール表示など）
 │   ├── works.js    # works.json を読み込みギャラリー描画＋フィルタ
-│   └── shop.js     # shop.json を読み込み「販売中」帯を描画
+│   ├── shop.js     # shop.json を読み込み「販売中」帯を描画
+│   ├── profile.js  # profile.json を読み込みプロフィールを描画
+│   └── contact.js  # contact.json を読み込み問い合わせ導線を描画
 ├── data/
-│   ├── works.json  # 実績データ（← ここを追記するだけで作品が増える）
-│   └── shop.json   # 販売リンク（← ここを追記するだけでリンクが増える）
+│   ├── works.json   # 実績データ（← ここを追記するだけで作品が増える）
+│   ├── shop.json    # 販売リンク（← ここを追記するだけでリンクが増える）
+│   ├── profile.json # プロフィール本文・項目表・実績
+│   └── contact.json # 問い合わせ導線（ココナラ/クラウドワークス/X/note/メール）
 └── assets/         # favicon / OGP / ポートレート / 作品サムネ
 ```
+
+**HTMLを触らずに中身を更新できる**のがこの構成の要点。文章・リンク・作品はすべて
+`data/*.json` にあり、見た目は `css/tokens.css` の変数にある。
 
 ## 更新のしかた
 
 - **実績を増やす**: `data/works.json` の `items` に1件追記。
-  画像は `assets/works/` に置き、`thumb` にパスを指定。
-  `category` は `categories` の `id`（ai-image / copy / content）を使う。
+  画像は `assets/works/` に置き、`thumb` にパスを指定（`.jpg`/`.webp` 可）。
+  `category` は `categories` の `id`（ai-image / copy / content）、
+  `size` に `lg`/`wide`/`tall` を入れると誌面のサイズ差がつく。
 - **販売リンクを増やす**: `data/shop.json` の `items` に1件追記。
   `url` に外部販売ページの直リンクを入れる（空だと「準備中」表示）。
+- **問い合わせ先のURLを設定**: `data/contact.json` の各 `url` を埋める。
+  空のままだとリンクにならず「準備中」と表示されるので、URLが決まった分だけ順次でよい。
+- **プロフィールを書き換える**: `data/profile.json` の
+  `facts`（項目表）/ `lead`（導入・`\n` で改行）/ `body`（本文の段落配列）/
+  `note`（補足・不要なら空に）/ `creds`（実績）を編集。
+- **写真を差し替える**: `assets/portrait.svg` を実写真に置き換え
+  （`portrait.jpg` 等にする場合は `index.html` 内の2箇所の `src` を変更）。
 - **色・余白・フォントの調整**: 原則 `css/tokens.css` の変数だけで完結。
   フォントを self-host 化する場合は `index.html` の fonts ブロック1か所を差し替え。
 
@@ -53,6 +68,12 @@ python3 -m http.server 8000
 - Pages 設定: Settings → Pages → Source =「Deploy from a branch」→ `main` / `/ (root)`
 
 ビルド不要（純静的）。作品・販売リンクは JSON 追記のみで更新できる。
+
+反映はスクリプト1本で完了する（`apps/portfolio/` の中身を `ikep` のルートへ反映し push）：
+
+```bash
+./scripts/sync-to-ikep.sh "コミットメッセージ"
+```
 
 ## 公開前チェック
 

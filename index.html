@@ -161,29 +161,13 @@
             <div class="profile__plate">
               <img src="assets/portrait.svg" alt="ikeP のポートレート" width="400" height="500">
             </div>
-            <ul class="profile__facts">
-              <li class="fact"><span class="fact__k">拠点</span><span class="fact__v">長野県小諸市</span></li>
-              <li class="fact"><span class="fact__k">仕事</span><span class="fact__v">AI×コミュニケーション制作</span></li>
-              <li class="fact"><span class="fact__k">資格</span><span class="fact__v">生成AIパスポート</span></li>
-              <li class="fact"><span class="fact__k">活動</span><span class="fact__v">SHIFT AI コミュニティ</span></li>
-            </ul>
+            <!-- 内容は data/profile.json（facts） -->
+            <ul class="profile__facts" data-profile-facts></ul>
           </aside>
           <div class="profile__body reveal">
             <h2 id="profile-h">ikePって、何者？</h2>
-            <p class="profile__lead">
-              AIに強い。でも、いちばん人間くさくいたい。<br>
-              長野・小諸で、AIと言葉のあいだを翻訳しているフリーランスです。
-            </p>
-            <p>
-              「AIって難しそう」「なんだか冷たそう」。そう感じる人こそ、わたしの相手です。
-              最新の道具を使いこなしながら、最後に残すのは“あなたらしい体温”。
-              その両立が、いちばん得意なことだと思っています。
-            </p>
-            <p class="muted">（プロフィール本文は仮です。経歴・実績・想いを後から差し替えられます。）</p>
-            <ul class="creds">
-              <li class="cred"><span class="cred__mark">—</span><span><span class="cred__t">SHIFT AI</span> <span class="cred__d">／ 生成AIコミュニティでの活動・発信</span></span></li>
-              <li class="cred"><span class="cred__mark">—</span><span><span class="cred__t">生成AIパスポート</span> <span class="cred__d">／ 生成AI活用の基礎資格を取得</span></span></li>
-            </ul>
+            <!-- 内容は data/profile.json（lead / body / note / creds） -->
+            <div data-profile-body></div>
             <div style="margin-top:var(--sp-7); display:flex; gap:var(--sp-3); flex-wrap:wrap;">
               <a class="btn btn--primary" href="#contact">ご依頼・相談する</a>
               <a class="btn btn--ghost" href="#works">作品を見る</a>
@@ -211,28 +195,8 @@
               ※ 各リンク先URLは公開前に差し替えてください（現在はダミー）。
             </p>
           </div>
-          <div class="contact__channels">
-            <a class="channel" href="#" target="_blank" rel="noopener">
-              <span><span class="channel__name">ココナラ</span><span class="channel__desc">スキル出品・お仕事のご依頼</span></span>
-              <span class="channel__go" aria-hidden="true">&rarr;</span>
-            </a>
-            <a class="channel" href="#" target="_blank" rel="noopener">
-              <span><span class="channel__name">クラウドワークス</span><span class="channel__desc">お仕事のご依頼</span></span>
-              <span class="channel__go" aria-hidden="true">&rarr;</span>
-            </a>
-            <a class="channel" href="#" target="_blank" rel="noopener">
-              <span><span class="channel__name">X（旧Twitter）</span><span class="channel__desc">日々の発信・DM</span></span>
-              <span class="channel__go" aria-hidden="true">&rarr;</span>
-            </a>
-            <a class="channel" href="#" target="_blank" rel="noopener">
-              <span><span class="channel__name">note</span><span class="channel__desc">考えていること・記事</span></span>
-              <span class="channel__go" aria-hidden="true">&rarr;</span>
-            </a>
-            <a class="channel" href="#" target="_blank" rel="noopener">
-              <span><span class="channel__name">メール / フォーム</span><span class="channel__desc">直接のご連絡</span></span>
-              <span class="channel__go" aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
+          <!-- 内容は data/contact.json -->
+          <div class="contact__channels" data-contact></div>
         </div>
       </div>
     </section>
@@ -249,5 +213,7 @@
   <script src="js/main.js" defer></script>
   <script src="js/works.js" defer></script>
   <script src="js/shop.js" defer></script>
+  <script src="js/profile.js" defer></script>
+  <script src="js/contact.js" defer></script>
 </body>
 </html>
