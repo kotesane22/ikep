@@ -241,6 +241,31 @@ section[id], [id].section { scroll-margin-top: 92px; }
 @media (max-width: 860px) { .profile__grid { grid-template-columns: 1fr; } .profile__plate { max-width: 320px; } }
 
 /* =========================================================
+   今日の30秒（habit）— 誌面の連載コラム
+   ========================================================= */
+.habit__mount { margin-top: var(--sp-6); }
+.habit {
+  max-width: 62ch;
+  background: var(--c-paper-2);
+  border: 1px solid var(--c-brass-line);
+  padding: clamp(var(--sp-5), 4vw, var(--sp-7));
+  box-shadow: var(--sh-1);
+}
+.habit__meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--sp-3); padding-bottom: var(--sp-4); border-bottom: 1px solid var(--c-line-soft); }
+.habit__no { font-family: var(--ff-display); font-style: italic; font-size: var(--fs-h3); color: var(--c-brass); }
+.habit__date { font-family: var(--ff-sans); font-size: var(--fs-cap); letter-spacing: var(--ls-wide); color: var(--c-ink-faint); }
+.habit__tag { margin-left: auto; font-family: var(--ff-sans); font-size: var(--fs-cap); letter-spacing: var(--ls-wide); color: var(--c-brass-deep); border: 1px solid var(--c-brass-line); border-radius: var(--r-pill); padding: 0.2em 0.9em; }
+.habit__title { font-family: var(--ff-mincho); font-size: var(--fs-h2); color: var(--c-heading); font-weight: var(--fw-semi); margin-top: var(--sp-5); line-height: 1.4; }
+.habit__body { font-family: var(--ff-mincho); color: var(--c-ink); margin-top: var(--sp-4); line-height: 1.95; }
+.habit__steps { list-style: none; counter-reset: step; margin: var(--sp-5) 0 0; padding: 0; display: grid; gap: var(--sp-3); }
+.habit__steps li { counter-increment: step; position: relative; padding-left: 2.4em; font-family: var(--ff-sans); font-size: var(--fs-small); color: var(--c-ink-soft); line-height: var(--lh-snug); }
+.habit__steps li::before {
+  content: counter(step); position: absolute; left: 0; top: -0.05em;
+  font-family: var(--ff-display); font-style: italic; color: var(--c-brass);
+  width: 1.7em; text-align: center; border-bottom: 1px solid var(--c-brass-line);
+}
+
+/* =========================================================
    便り（contact）— 濃色エスプレッソ面
    ========================================================= */
 .contact { background: var(--c-paper-ink); color: var(--c-on-dark); }

@@ -27,6 +27,8 @@ data/works.json   作品データ（追記だけで増える）
 data/shop.json    販売リンク
 data/profile.json プロフィール本文・項目表・実績
 data/contact.json 問い合わせ導線（url が空なら「準備中」表示でリンクにしない）
+js/habit.js       data/habits.json を読み、連載「今日の30秒」を日付で1件選んで描画
+data/habits.json  連載データ（追記だけで増える）
 assets/           favicon / ogp(png+svg) / portrait / works/ サムネ(SVG)
 ```
 
@@ -68,6 +70,16 @@ assets/           favicon / ogp(png+svg) / portrait / works/ サムネ(SVG)
 ```
 - `url` が空 → `<div class="channel" aria-disabled="true">` ＋「準備中」（リンクにしない）
 - `url` あり → `<a class="channel" target="_blank" rel="noopener">` ＋ 矢印
+
+### data/habits.json（連載「今日の30秒」）
+```jsonc
+{ "items": [ { "id":"h001", "title":"見出し", "body":"本文（\\n で改行）",
+               "steps":["任意の手順"], "tag":"任意のラベル" } ] }
+```
+- **日替わりの仕組み**：ローカル日付の通日 % 件数 で1件を選ぶ（`js/habit.js`）。
+  乱数・保存を使わないので「同じ日は同じ／翌日は次の回／一巡したら先頭へ」。
+  この決定性を壊さないこと（`Math.random()` や `localStorage` を持ち込まない）。
+- 1件でも動く。`steps` が空なら `<ol>` ごと出ない。
 
 ### data/profile.json
 - `facts[]`（`k`/`v` の項目表）、`lead`（`\n` が `<br>` になる）、

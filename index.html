@@ -44,6 +44,7 @@
           <a href="#services">仕事</a>
           <a href="#works">作品</a>
           <a href="#profile">プロフィール</a>
+          <a href="#habit">今日の30秒</a>
           <a href="#contact" class="is-cta">ご依頼・相談</a>
         </div>
       </nav>
@@ -177,10 +178,23 @@
       </div>
     </section>
 
+    <!-- ============ 今日の30秒（HABIT・連載）============ -->
+    <section class="section section--alt" id="habit" aria-labelledby="habit-h">
+      <div class="wrap">
+        <div class="chapter"><span class="chapter__no">04</span><span class="chapter__label">連載</span><span class="chapter__rule"></span></div>
+        <div class="lede">
+          <h2 id="habit-h">今日の30秒</h2>
+          <p>毎日つづけている、30秒の習慣をひとつ。日付が変わると次の回になります。</p>
+        </div>
+        <!-- 内容は data/habits.json（日付で自動的に1件選ばれる） -->
+        <div class="habit__mount reveal" data-habit></div>
+      </div>
+    </section>
+
     <!-- ============ 便り（CONTACT）============ -->
     <section class="section contact" id="contact" aria-labelledby="contact-h">
       <div class="wrap">
-        <div class="chapter"><span class="chapter__no">04</span><span class="chapter__label">便り</span><span class="chapter__rule"></span></div>
+        <div class="chapter"><span class="chapter__no">05</span><span class="chapter__label">便り</span><span class="chapter__rule"></span></div>
         <div class="contact__grid">
           <div>
             <h2 id="contact-h">「これ、頼めますか？」<br>の一言からで大丈夫。</h2>
@@ -215,5 +229,6 @@
   <script src="js/shop.js" defer></script>
   <script src="js/profile.js" defer></script>
   <script src="js/contact.js" defer></script>
+  <script src="js/habit.js" defer></script>
 </body>
 </html>
