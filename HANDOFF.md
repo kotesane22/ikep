@@ -11,7 +11,10 @@
 - コンセプト：ポートフォリオを *上質な季刊誌「ikeP通信」* として見せる。
   世界観は **ラグジュアリー × 温かい × 洗練**。
 - 章立て（和文）：**表紙 / 序 / 仕事 / 作品集 / 人 / 便り**。
-- 詳しい設計原理は [`RESEARCH.md`](./RESEARCH.md) を参照。
+- 詳しい設計原理は [`RESEARCH.md`](./RESEARCH.md)、要件の正本は
+  [`CLAUDE.md`](./CLAUDE.md)（現行 v3.0）、更新手順の正本は [`README.md`](./README.md) を参照。
+- **本書の役割は「UIを磨くための引き継ぎ」に限る。** 要件・更新手順の記述が
+  `CLAUDE.md` / `README.md` と食い違う場合は、**そちらが正**。
 
 ## 1. アーキテクチャ（触るファイル）
 ```
@@ -114,15 +117,16 @@ UIをさらに“綺麗”にするための、土台を壊さない磨き込み
 
 ## 7. 動作確認
 ```bash
-cd apps/portfolio && python3 -m http.server 8000
+cd <このリポジトリのルート> && python3 -m http.server 8000
 # → http://localhost:8000/
 ```
 
 ## 8. 公開
-- 公開先リポジトリ：`kotesane22/ikep`（このディレクトリの中身がルート）。
+- 公開先リポジトリ：`kotesane22/ikep`（**このリポジトリのルートがそのまま公開対象**）。
 - 公開URL：`https://kotesane22.github.io/ikep/`
 - Pages 有効化：Settings → Pages → Source「Deploy from a branch」→ `main` / `/(root)`。
-- 開発元は `goodbetter-ai-lab` の `apps/portfolio/`。更新後に `ikep` へ反映する運用。
+  **手動操作が必要**（自動化ワークフローは権限不足のためコミット `5a0f422` で撤去済み）。
+- 🔒 **`main` へのマージ＝公開は、いけPの承認が必要**（`noah/APPROVALS.md`）。
 
 ---
 

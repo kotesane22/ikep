@@ -1,15 +1,22 @@
 # ikeP ポートフォリオサイト
 
 静的HTML/CSS/JS（フレームワーク不使用）のポートフォリオサイト。
-GitHub Pages公開前提。要件の詳細は [`CLAUDE.md`](./CLAUDE.md)。
+GitHub Pages公開前提。
 
-デザインは「ikeP通信」踏襲：オフブラック × アンバーゴールド × セリフ
-（Noto Serif JP / Playfair Display）。単一ページ構成。
+- **要件・デザイン方針の正本** → [`CLAUDE.md`](./CLAUDE.md)（現行 v3.0）
+- **設計原理の調査ノート** → [`RESEARCH.md`](./RESEARCH.md)
+- **UI仕上げ用の引き継ぎ** → [`HANDOFF.md`](./HANDOFF.md)
+- **運用（目標・タスク・承認）** → [`noah/START_HERE.md`](./noah/START_HERE.md)
+
+このREADMEは「**更新のしかた**」の正本。設計思想は `CLAUDE.md` を見ること。
+
+デザインは「ikeP通信」踏襲：**温かいアイボリーの紙 × エスプレッソの墨 × 真鍮の一点**
+（Fraunces / しっぽり明朝 / Noto Sans JP）。単一ページ構成。
 
 ## 構成
 
 ```
-apps/portfolio/
+ikep/                # ＝ このリポジトリのルート
 ├── index.html      # 単一ページ（Hero / Statement / Services / Works / Profile / Contact）
 ├── css/
 │   ├── tokens.css  # デザイントークン（色・フォント・余白・角丸・影）※変数のみ
@@ -60,26 +67,22 @@ apps/portfolio/
 `fetch` でJSONを読むため `file://` 直開きでは動きません。簡易サーバー経由で。
 
 ```bash
-cd apps/portfolio
+cd <このリポジトリのルート>
 python3 -m http.server 8000
 # → http://localhost:8000/
 ```
 
-## 公開（GitHub Pages・独立リポジトリ）
+## 公開（GitHub Pages）
 
-このサイトは独立リポジトリ `kotesane22/ikep` のルートに配置して公開する。
-`apps/portfolio/` の中身がそのまま `ikep` リポジトリのルートになる。
+このリポジトリ `kotesane22/ikep` の**ルートがそのまま公開対象**。ビルド不要（純静的）。
 
 - 公開URL: `https://kotesane22.github.io/ikep/`
 - Pages 設定: Settings → Pages → Source =「Deploy from a branch」→ `main` / `/ (root)`
+- **Pages の有効化は手動操作が必要**（自動化ワークフローは権限不足のためコミット
+  `5a0f422` で撤去済み）
 
-ビルド不要（純静的）。作品・販売リンクは JSON 追記のみで更新できる。
-
-反映はスクリプト1本で完了する（`apps/portfolio/` の中身を `ikep` のルートへ反映し push）：
-
-```bash
-./scripts/sync-to-ikep.sh "コミットメッセージ"
-```
+> 🔒 **`main` へのマージ ＝ 公開は、いけPの承認が必要。**
+> AIエージェントは作業ブランチまで。詳細は [`noah/APPROVALS.md`](./noah/APPROVALS.md)。
 
 ## 公開前チェック
 
