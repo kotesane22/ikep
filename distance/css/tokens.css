@@ -1,0 +1,56 @@
+/* =========================================================
+   design tokens — レジ待ち距離感診断
+   黒 × 真鍮ゴールドの一点。装飾の差し替えはこのファイルで完結。
+   ========================================================= */
+:root {
+  /* surfaces */
+  --c-bg:      #0d0c0a;
+  --c-bg-2:    #16140f;
+  --c-bg-3:    #1f1c16;
+  --c-line:    rgba(233, 222, 199, 0.14);
+  --c-line-2:  rgba(233, 222, 199, 0.28);
+
+  /* text */
+  --c-text:    #ece4d3;
+  --c-text-2:  #b3a88f;
+  --c-text-3:  #7d7462;
+
+  /* accent（真鍮） */
+  --c-gold:      #c9a46a;
+  --c-gold-2:    #e2c48f;
+  --c-gold-soft: rgba(201, 164, 106, 0.14);
+  --c-gold-line: rgba(201, 164, 106, 0.5);
+
+  /* zones（ホールの距離帯：控えめな3段階） */
+  --c-zone-1: rgba(196, 110, 84, 0.28);   /* 密接 */
+  --c-zone-2: rgba(201, 164, 106, 0.18);  /* 個体 */
+  --c-zone-3: rgba(233, 222, 199, 0.06);  /* 社会 */
+  --c-warn:   #d98b6f;
+
+  /* type */
+  --ff-serif:  "Noto Serif JP", "Yu Mincho", serif;
+  --ff-latin:  "Playfair Display", "Noto Serif JP", serif;
+  --ff-sans:   "Noto Sans JP", system-ui, -apple-system, sans-serif;
+
+  --fs-hero:  clamp(2rem, 7.4vw, 3.6rem);
+  --fs-h2:    clamp(1.4rem, 4.4vw, 2rem);
+  --fs-h3:    clamp(1.1rem, 3.2vw, 1.3rem);
+  --fs-body:  1rem;
+  --fs-small: 0.88rem;
+  --fs-cap:   0.76rem;
+  --ls-label: 0.26em;
+  --lh-body:  1.9;
+
+  /* space */
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-5: 1.5rem;  --sp-6: 2rem;   --sp-7: 3rem;    --sp-8: 4.5rem;
+
+  --w-max: 640px;
+  --gutter: 16px;
+
+  --r-sm: 4px; --r-md: 10px; --r-pill: 999px;
+  --sh-1: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  --ease: cubic-bezier(0.22, 0.7, 0.24, 1);
+  --dur: 320ms;
+}
