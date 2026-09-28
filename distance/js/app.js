@@ -325,17 +325,30 @@
 
   function share() {
     var url = shareUrl();
-    if (navigator.share) {
-      navigator.share({ title: "レジ待ち距離感診断", text: shareText(), url: url }).catch(function () {});
-      return;
-    }
-    var done = function () {
-      var c = $("[data-copied]");
+    var c = $("[data-copied]");
+    function flash(msg) {
+      c.classList.remove("is-url");
+      c.textContent = msg;
       c.hidden = false;
       setTimeout(function () { c.hidden = true; }, 2400);
-    };
-    if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, function () { prompt("このリンクをコピーしてください", url); });
-    else prompt("このリンクをコピーしてください", url);
+    }
+    // 共有もコピーもできない環境では、URLをそのまま表示して選択してもらう
+    function showUrl() {
+      c.textContent = url;
+      c.classList.add("is-url");
+      c.hidden = false;
+    }
+    function copy() {
+      if (!navigator.clipboard) return showUrl();
+      navigator.clipboard.writeText(url).then(function () { flash("リンクをコピーしました"); }, showUrl);
+    }
+    if (navigator.share) {
+      navigator.share({ title: "レジ待ち距離感診断", text: shareText(), url: url }).catch(function (e) {
+        if (!e || e.name !== "AbortError") copy();
+      });
+      return;
+    }
+    copy();
   }
 
   /* ---------- 起動 ---------- */

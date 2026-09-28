@@ -257,6 +257,7 @@ main.wrap { padding-top: var(--sp-7); padding-bottom: var(--sp-7); }
 .field input::placeholder { color: var(--c-text-3); }
 .share-btns { display: grid; gap: var(--sp-3); }
 @media (min-width: 520px) { .share-btns { grid-template-columns: 1fr 1fr; } }
+.copied.is-url { user-select: all; word-break: break-all; font-family: var(--ff-latin); }
 .copied { margin: var(--sp-3) 0 0; font-size: var(--fs-small); color: var(--c-gold-2); text-align: center; }
 
 .why { margin: var(--sp-8) 0 var(--sp-7); }
