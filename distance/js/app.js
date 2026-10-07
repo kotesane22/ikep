@@ -116,6 +116,48 @@
     measure(svg, xY + HALF, xB - HALF, 112, t, s + t < 140);
   }
 
+  /* ---------- ダンス ---------- */
+  var DANCES = [
+    { id: "hop", name: "ぴょんぴょん" },
+    { id: "step", name: "サイドステップ" },
+    { id: "disco", name: "ディスコ" },
+    { id: "turn", name: "くるっとターン" },
+    { id: "wiggle", name: "ぷるぷる" },
+    { id: "moon", name: "ムーンウォーク" },
+    { id: "stretch", name: "のびちぢみ" },
+    { id: "flip", name: "宙返り" }
+  ];
+  // タイプごとの得意ダンス
+  var TYPE_DANCE = { A: "step", B: "wiggle", C: "moon", D: "hop", E: "turn" };
+
+  function setDance(fig, id) {
+    var d = DANCES.filter(function (x) { return x.id === id; })[0] || DANCES[0];
+    $$(".dancer", fig).forEach(function (n) {
+      // 同じダンスを付け直しても最初から再生されるように一度外す
+      n.removeAttribute("data-dance");
+      void n.offsetWidth;
+      n.setAttribute("data-dance", d.id);
+    });
+    fig.setAttribute("data-current", d.id);
+    $("[data-dance-name]", fig).textContent = d.name;
+  }
+
+  function nextDance(fig) {
+    var cur = fig.getAttribute("data-current");
+    var i = DANCES.map(function (x) { return x.id; }).indexOf(cur);
+    setDance(fig, DANCES[(i + 1) % DANCES.length].id);
+  }
+
+  function bindStage(fig, autoMs) {
+    var timer = null;
+    function auto() {
+      clearInterval(timer);
+      if (autoMs) timer = setInterval(function () { nextDance(fig); }, autoMs);
+    }
+    $("[data-stage]", fig).addEventListener("click", function () { nextDance(fig); auto(); });
+    auto();
+  }
+
   /* ---------- 画面遷移 ---------- */
   function show(name) {
     $$("[data-screen]").forEach(function (s) { s.hidden = s.getAttribute("data-screen") !== name; });
@@ -223,7 +265,9 @@
     setText("stand", r.stand); setText("tolerance", r.tolerance);
     setText("gapName", r.gap.name); setText("gapBody", r.gap.body);
     drawTrio($("[data-scene='result']"), r.stand, r.tolerance);
-    $("[data-ikepy-type]").setAttribute("data-type", t.code);
+    var fig = $("[data-ikepy-type]");
+    fig.setAttribute("data-type", t.code);
+    setDance(fig, TYPE_DANCE[t.code]);
 
     // 5段階スケール
     var scale = $("[data-scale]");
@@ -363,6 +407,10 @@
 
   /* ---------- 起動 ---------- */
   function init() {
+    var hero = $(".ikepy-hero");
+    setDance(hero, "hop");
+    bindStage(hero, 3600);
+    bindStage($("[data-ikepy-type]"), 0);
     bindRange("stand", true);
     bindRange("tolerance", false);
     renderWhy();

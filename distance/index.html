@@ -39,7 +39,11 @@
     <section class="screen" data-screen="intro">
       <figure class="ikepy-hero">
         <p class="bubble">後ろの人、<br>近すぎない？</p>
-        <img src="assets/ikepy.webp" alt="ティール色のキャラクター、イケピー" width="760" height="1015">
+        <button class="stage" type="button" data-stage aria-label="イケピーをタップして次のダンス">
+          <span class="floor-shadow" aria-hidden="true"></span>
+          <span class="dancer" data-dance="hop"><img src="assets/ikepy.webp" alt="踊るティール色のキャラクター、イケピー" width="760" height="1015"></span>
+        </button>
+        <figcaption class="dance-chip" aria-live="polite"><b data-dance-name>ぴょんぴょん</b>タップで次のダンス</figcaption>
       </figure>
       <p class="label">レジ待ち距離感診断</p>
       <h1 class="hero">その距離、<br>近い？ 遠い？</h1>
@@ -95,10 +99,14 @@
     <!-- ===== 結果 ===== -->
     <section class="screen result" data-screen="result" hidden>
       <figure class="ikepy-result" data-ikepy-type>
-        <img class="ghost" src="assets/ikepy.webp" alt="" aria-hidden="true" width="760" height="1015">
-        <img class="main" src="assets/ikepy.webp" alt="イケピー" width="760" height="1015">
+        <span class="ghost-wrap" aria-hidden="true"><span class="dancer"><img src="assets/ikepy.webp" alt="" width="760" height="1015"></span></span>
+        <button class="stage" type="button" data-stage aria-label="イケピーをタップして次のダンス">
+          <span class="floor-shadow" aria-hidden="true"></span>
+          <span class="dancer"><img src="assets/ikepy.webp" alt="踊るイケピー" width="760" height="1015"></span>
+        </button>
         <span class="ring" aria-hidden="true"></span>
         <svg class="feet" viewBox="0 0 120 24" aria-hidden="true"><ellipse cx="38" cy="12" rx="16" ry="7"/><ellipse cx="82" cy="12" rx="16" ry="7"/></svg>
+        <figcaption class="dance-chip" aria-live="polite"><b data-dance-name></b>タップで次のダンス</figcaption>
       </figure>
       <p class="label">あなたの距離感タイプ</p>
       <div class="type-head">

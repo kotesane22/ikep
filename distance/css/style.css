@@ -24,7 +24,7 @@ h1:focus, h2:focus { outline: none; }
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
-main.wrap { padding-top: var(--sp-7); padding-bottom: var(--sp-7); }
+main.wrap { padding-top: var(--sp-7); padding-bottom: var(--sp-7); overflow-x: clip; }
 .pc { display: none; }
 @media (min-width: 640px) {
   .pc { display: inline; }
@@ -297,11 +297,9 @@ main.wrap { padding-top: var(--sp-7); padding-bottom: var(--sp-7); }
 /* =========================================================
    イケピー（キャラクター）
    ========================================================= */
-.ikepy-hero {
-  position: relative;
-  width: min(78%, 300px);
-  margin: 0 auto var(--sp-5);
-}
+.ikepy-hero, .ikepy-result { position: relative; margin: 0 auto var(--sp-5); }
+.ikepy-hero { width: min(78%, 300px); }
+.ikepy-result { width: min(62%, 240px); }
 .ikepy-hero::before,
 .ikepy-result::before {
   content: "";
@@ -310,9 +308,94 @@ main.wrap { padding-top: var(--sp-7); padding-bottom: var(--sp-7); }
   z-index: 0;
 }
 .ikepy-hero img,
-.ikepy-result img { position: relative; z-index: 1; display: block; width: 100%; height: auto; }
-.ikepy-hero img { animation: hop 2.8s var(--ease) infinite; }
-@keyframes hop { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-8px) rotate(-1.5deg); } }
+.ikepy-result img { display: block; width: 100%; height: auto; }
+
+/* 踊るステージ：タップで次のダンス */
+.stage {
+  position: relative; z-index: 1; display: block; width: 100%;
+  padding: 0; border: 0; background: none; cursor: pointer;
+  perspective: 700px;
+  -webkit-tap-highlight-color: transparent;
+}
+.dancer { display: block; position: relative; z-index: 1; transform-origin: 50% 100%; will-change: transform; }
+.floor-shadow {
+  position: absolute; z-index: 0; left: 22%; right: 22%; bottom: -2%; height: 7%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(79, 223, 228, 0.35), rgba(79, 223, 228, 0));
+}
+.dance-chip {
+  display: flex; justify-content: center; align-items: center; gap: var(--sp-2);
+  margin: var(--sp-2) 0 0;
+  font-size: var(--fs-cap); color: var(--c-text-3);
+}
+.dance-chip b { color: var(--c-teal-2); font-weight: 700; }
+
+/* --- 8つのダンス --- */
+[data-dance="hop"]     { animation: d-hop 0.9s var(--ease) infinite; }
+[data-dance="step"]    { animation: d-step 1.2s ease-in-out infinite; }
+[data-dance="turn"]    { animation: d-turn 1.8s ease-in-out infinite; }
+[data-dance="wiggle"]  { animation: d-wiggle 0.42s ease-in-out infinite; }
+[data-dance="disco"]   { animation: d-disco 0.9s ease-in-out infinite; }
+[data-dance="flip"]    { animation: d-flip 1.5s var(--ease) infinite; transform-origin: 50% 55%; }
+[data-dance="moon"]    { animation: d-moon 2.4s linear infinite; }
+[data-dance="stretch"] { animation: d-stretch 0.8s ease-in-out infinite; }
+
+@keyframes d-hop {
+  0%, 100% { transform: translateY(0) scale(1.07, 0.92); }
+  25%      { transform: translateY(-16%) scale(0.95, 1.07); }
+  50%      { transform: translateY(-24%) scale(1, 1) rotate(-4deg); }
+  80%      { transform: translateY(0) scale(1.1, 0.88); }
+  90%      { transform: translateY(0) scale(0.98, 1.03); }
+}
+@keyframes d-step {
+  0%, 100% { transform: translateX(-9%) rotate(-9deg); }
+  25%      { transform: translateY(-7%) scale(0.97, 1.04); }
+  50%      { transform: translateX(9%) rotate(9deg); }
+  75%      { transform: translateY(-7%) scale(0.97, 1.04); }
+}
+@keyframes d-turn {
+  0%   { transform: rotateY(0) translateY(0); }
+  50%  { transform: rotateY(180deg) translateY(-10%); }
+  100% { transform: rotateY(360deg) translateY(0); }
+}
+@keyframes d-wiggle {
+  0%, 100% { transform: rotate(-6deg) scale(1.03, 0.97); }
+  50%      { transform: rotate(6deg) scale(0.97, 1.03); }
+}
+@keyframes d-disco {
+  0%, 100% { transform: rotate(-13deg) translateY(0); filter: drop-shadow(0 0 14px rgba(79, 223, 228, 0.7)); }
+  25%      { transform: rotate(0) translateY(-9%) scale(0.96, 1.05); }
+  50%      { transform: rotate(13deg) translateY(0); filter: drop-shadow(0 0 14px rgba(255, 120, 173, 0.7)); }
+  75%      { transform: rotate(0) translateY(-9%) scale(0.96, 1.05); }
+}
+@keyframes d-flip {
+  0%, 100% { transform: translateY(0) rotate(0) scale(1.08, 0.9); }
+  20%      { transform: translateY(-28%) rotate(0) scale(0.94, 1.06); }
+  60%      { transform: translateY(-30%) rotate(360deg) scale(1, 1); }
+  85%      { transform: translateY(0) rotate(360deg) scale(1.1, 0.88); }
+}
+@keyframes d-moon {
+  0%   { transform: translateX(-14%) scaleX(1); }
+  12%  { transform: translateX(-10%) translateY(-3%) scaleX(1); }
+  25%  { transform: translateX(-4%) scaleX(1); }
+  37%  { transform: translateX(3%) translateY(-3%) scaleX(1); }
+  49%  { transform: translateX(14%) scaleX(1); }
+  50%  { transform: translateX(14%) scaleX(-1); }
+  62%  { transform: translateX(10%) translateY(-3%) scaleX(-1); }
+  75%  { transform: translateX(4%) scaleX(-1); }
+  87%  { transform: translateX(-3%) translateY(-3%) scaleX(-1); }
+  99%  { transform: translateX(-14%) scaleX(-1); }
+  100% { transform: translateX(-14%) scaleX(1); }
+}
+@keyframes d-stretch {
+  0%, 100% { transform: scale(1.12, 0.84); }
+  50%      { transform: translateY(-5%) scale(0.9, 1.14); }
+}
+/* 跳ぶダンスは影も伸び縮み */
+.stage:has([data-dance="hop"]) .floor-shadow,
+.stage:has([data-dance="flip"]) .floor-shadow { animation: s-jump 0.9s var(--ease) infinite; }
+.stage:has([data-dance="flip"]) .floor-shadow { animation-duration: 1.5s; }
+@keyframes s-jump { 0%, 80%, 100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(0.6); opacity: 0.4; } }
 
 .bubble {
   position: absolute; z-index: 2;
@@ -348,29 +431,16 @@ main.wrap { padding-top: var(--sp-7); padding-bottom: var(--sp-7); }
   line-height: 1.7;
 }
 
-/* 結果のイケピー：タイプごとに演出を変える */
-.ikepy-result {
-  position: relative;
-  width: min(62%, 240px);
-  margin: 0 auto var(--sp-5);
-}
-.ikepy-result .ghost, .ikepy-result .ring, .ikepy-result .feet { display: none; }
+/* 結果のイケピー：タイプごとの小道具 */
+.ikepy-result .ghost-wrap, .ikepy-result .ring, .ikepy-result .feet { display: none; }
 
-/* A 守護霊：うっすら分身が背後に */
-.ikepy-result[data-type="A"] .ghost {
+/* A 守護霊：少し遅れて同じダンスをする分身 */
+.ikepy-result[data-type="A"] .ghost-wrap {
   display: block; position: absolute; inset: 0; z-index: 0;
-  opacity: 0.28; filter: blur(2px) saturate(0.6);
-  transform: translate(18%, -6%) scale(1.04);
-  animation: haunt 3.6s ease-in-out infinite;
+  opacity: 0.3; filter: blur(1.5px) saturate(0.6);
+  transform: translate(20%, -7%) scale(1.04);
 }
-@keyframes haunt { 50% { transform: translate(14%, -10%) scale(1.06); opacity: 0.18; } }
-
-/* B せっかち予備軍：小刻みに足踏み */
-.ikepy-result[data-type="B"] .main { animation: fidget 0.5s steps(2) infinite; }
-@keyframes fidget { 50% { transform: translateY(-3px) rotate(1.5deg); } }
-
-/* C 職人：静かに浮く */
-.ikepy-result[data-type="C"] .main { animation: hop 4s var(--ease) infinite; }
+.ikepy-result .ghost-wrap .dancer { animation-delay: 0.22s; }
 
 /* D 足跡マーク信者：足元に目印 */
 .ikepy-result[data-type="D"] .feet { display: block; position: relative; z-index: 1; width: 70%; margin: -6% auto 0; }
@@ -382,10 +452,11 @@ main.wrap { padding-top: var(--sp-7); padding-bottom: var(--sp-7); }
   border: 2px dashed var(--c-teal);
   border-radius: 50%;
   box-shadow: var(--glow), inset 0 0 24px rgba(79, 223, 228, 0.25);
+  pointer-events: none;
   animation: spin 14s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .ikepy-hero img, .ikepy-result .main, .ikepy-result .ghost, .ikepy-result .ring { animation: none; }
+  [data-dance], .floor-shadow, .ikepy-result .ring { animation: none !important; }
 }
