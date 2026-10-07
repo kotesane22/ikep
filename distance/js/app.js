@@ -51,19 +51,27 @@
   function person(g, x, isYou, label) {
     var cls = isYou ? "fig fig-you" : "fig";
     var grp = el("g", { "class": cls, transform: "translate(" + x + " 0)" });
-    grp.appendChild(el("circle", { cx: 0, cy: 62, r: 10 }));
+    if (isYou) {
+      // イケピー：触角つきの丸い頭
+      grp.appendChild(el("path", { "class": "antenna", d: "M-5 52 L-9 40 M5 52 L10 41", fill: "none" }));
+      grp.appendChild(el("circle", { cx: -9, cy: 38, r: 3.5 }));
+      grp.appendChild(el("circle", { cx: 10, cy: 39, r: 3.5 }));
+      grp.appendChild(el("circle", { cx: 0, cy: 62, r: 13 }));
+    } else {
+      grp.appendChild(el("circle", { cx: 0, cy: 62, r: 10 }));
+    }
     grp.appendChild(el("path", { d: "M-12 " + FLOOR + " V86 Q-12 76 -2 76 H2 Q12 76 12 86 V" + FLOOR + " Z" }));
     grp.appendChild(el("text", { x: 0, y: FLOOR + 15, "class": "fig-label", "text-anchor": "middle" }, label));
     g.appendChild(grp);
   }
 
-  function measure(g, x1, x2, y, cm) {
+  function measure(g, x1, x2, y, cm, below) {
     var warn = cm < 45;
     var grp = el("g", { "class": warn ? "measure is-warn" : "measure" });
     grp.appendChild(el("line", { x1: x1, x2: x2, y1: y, y2: y }));
     grp.appendChild(el("line", { x1: x1, x2: x1, y1: y - 4, y2: y + 4 }));
     grp.appendChild(el("line", { x1: x2, x2: x2, y1: y - 4, y2: y + 4 }));
-    grp.appendChild(el("text", { x: (x1 + x2) / 2, y: y - 8, "text-anchor": "middle" }, cm + "cm"));
+    grp.appendChild(el("text", { x: (x1 + x2) / 2, y: below ? y + 16 : y - 8, "text-anchor": "middle" }, cm + "cm"));
     g.appendChild(grp);
   }
 
@@ -105,7 +113,7 @@
     person(svg, xY, true, "あなた");
     person(svg, xB, false, "後ろの人");
     measure(svg, xF + HALF, xY - HALF, 112, s);
-    measure(svg, xY + HALF, xB - HALF, 112, t);
+    measure(svg, xY + HALF, xB - HALF, 112, t, s + t < 140);
   }
 
   /* ---------- 画面遷移 ---------- */
@@ -142,6 +150,7 @@
     var q = D.questions[state.qi];
     $("[data-q-step]").textContent = (state.qi + 3) + " / " + TOTAL_STEPS;
     $("[data-q-text]").textContent = q.q;
+    $("[data-q-say]").textContent = q.say || "";
     var list = $("[data-q-choices]");
     list.textContent = "";
     q.a.forEach(function (a, i) {
@@ -214,6 +223,7 @@
     setText("stand", r.stand); setText("tolerance", r.tolerance);
     setText("gapName", r.gap.name); setText("gapBody", r.gap.body);
     drawTrio($("[data-scene='result']"), r.stand, r.tolerance);
+    $("[data-ikepy-type]").setAttribute("data-type", t.code);
 
     // 5段階スケール
     var scale = $("[data-scale]");
@@ -353,7 +363,6 @@
 
   /* ---------- 起動 ---------- */
   function init() {
-    drawPair($("[data-scene='intro']"), 60, true);
     bindRange("stand", true);
     bindRange("tolerance", false);
     renderWhy();

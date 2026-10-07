@@ -1,45 +1,57 @@
 /* =========================================================
-   design tokens — レジ待ち距離感診断
-   黒 × 真鍮ゴールドの一点。装飾の差し替えはこのファイルで完結。
+   design tokens — レジ待ち距離感診断 v2
+   夜の黒 × イケピーのティール × ほっぺのピンク。
+   装飾の差し替えはこのファイルで完結。
    ========================================================= */
 :root {
-  /* surfaces */
-  --c-bg:      #0d0c0a;
-  --c-bg-2:    #16140f;
-  --c-bg-3:    #1f1c16;
-  --c-line:    rgba(233, 222, 199, 0.14);
-  --c-line-2:  rgba(233, 222, 199, 0.28);
+  color-scheme: dark;
+
+  /* surfaces（わずかに青みのある黒） */
+  --c-bg:      #0a0c0f;
+  --c-bg-2:    #12161b;
+  --c-bg-3:    #1a2027;
+  --c-line:    rgba(214, 244, 246, 0.12);
+  --c-line-2:  rgba(214, 244, 246, 0.26);
 
   /* text */
-  --c-text:    #ece4d3;
-  --c-text-2:  #b3a88f;
-  --c-text-3:  #7d7462;
+  --c-text:    #eef7f8;
+  --c-text-2:  #a4b8bc;
+  --c-text-3:  #6b7d82;
 
-  /* accent（真鍮） */
-  --c-gold:      #c9a46a;
-  --c-gold-2:    #e2c48f;
-  --c-gold-soft: rgba(201, 164, 106, 0.14);
-  --c-gold-line: rgba(201, 164, 106, 0.5);
+  /* accent（イケピーの体色） */
+  --c-teal:      #4fdfe4;
+  --c-teal-2:    #9bf1f3;
+  --c-teal-deep: #1c8f96;
+  --c-teal-soft: rgba(79, 223, 228, 0.12);
+  --c-teal-line: rgba(79, 223, 228, 0.5);
+  --glow:        0 0 24px rgba(79, 223, 228, 0.45);
+  --glow-text:   0 0 18px rgba(79, 223, 228, 0.55);
 
-  /* zones（ホールの距離帯：控えめな3段階） */
-  --c-zone-1: rgba(196, 110, 84, 0.28);   /* 密接 */
-  --c-zone-2: rgba(201, 164, 106, 0.18);  /* 個体 */
-  --c-zone-3: rgba(233, 222, 199, 0.06);  /* 社会 */
-  --c-warn:   #d98b6f;
+  /* second accent（ほっぺのピンク：近すぎ警告にも使う） */
+  --c-pink:      #ff78ad;
+  --c-pink-soft: rgba(255, 120, 173, 0.14);
+  --c-warn:      var(--c-pink);
+
+  /* other figures in the scene */
+  --c-other:     #3a454c;
+
+  /* zones（ホールの距離帯） */
+  --c-zone-1: rgba(255, 120, 173, 0.22);  /* 密接 */
+  --c-zone-2: rgba(79, 223, 228, 0.13);   /* 個体 */
+  --c-zone-3: rgba(214, 244, 246, 0.04);  /* 社会 */
 
   /* type */
-  --ff-serif:  "Noto Serif JP", "Yu Mincho", serif;
-  --ff-latin:  "Playfair Display", "Noto Serif JP", serif;
-  --ff-sans:   "Noto Sans JP", system-ui, -apple-system, sans-serif;
+  --ff-base:   "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+  --ff-latin:  "Fredoka", "Zen Maru Gothic", system-ui, sans-serif;
 
-  --fs-hero:  clamp(2rem, 7.4vw, 3.6rem);
-  --fs-h2:    clamp(1.4rem, 4.4vw, 2rem);
+  --fs-hero:  clamp(2.1rem, 8vw, 3.6rem);
+  --fs-h2:    clamp(1.4rem, 4.6vw, 2rem);
   --fs-h3:    clamp(1.1rem, 3.2vw, 1.3rem);
   --fs-body:  1rem;
-  --fs-small: 0.88rem;
-  --fs-cap:   0.76rem;
-  --ls-label: 0.26em;
-  --lh-body:  1.9;
+  --fs-small: 0.9rem;
+  --fs-cap:   0.78rem;
+  --ls-label: 0.2em;
+  --lh-body:  1.85;
 
   /* space */
   --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
@@ -48,9 +60,9 @@
   --w-max: 640px;
   --gutter: 16px;
 
-  --r-sm: 4px; --r-md: 10px; --r-pill: 999px;
-  --sh-1: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --r-sm: 12px; --r-md: 18px; --r-pill: 999px;
 
   --ease: cubic-bezier(0.22, 0.7, 0.24, 1);
+  --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
   --dur: 320ms;
 }

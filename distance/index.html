@@ -25,7 +25,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
@@ -37,6 +37,10 @@
 
     <!-- ===== イントロ ===== -->
     <section class="screen" data-screen="intro">
+      <figure class="ikepy-hero">
+        <p class="bubble">後ろの人、<br>近すぎない？</p>
+        <img src="assets/ikepy.webp" alt="ティール色のキャラクター、イケピー" width="760" height="1015">
+      </figure>
       <p class="label">レジ待ち距離感診断</p>
       <h1 class="hero">その距離、<br>近い？ 遠い？</h1>
       <p class="lead">前の人との距離。後ろの人に許せる距離。<br>2つのスライダーと8つの質問で、あなたの距離感を<br class="pc">A〜Eの5タイプで診断します。</p>
@@ -44,10 +48,6 @@
       <div class="friend" data-friend hidden>
         <p><strong data-friend-name></strong>さんから診断が届いています。<br>あなたも診断すると、2人の距離感を比べられます。</p>
       </div>
-
-      <figure class="scene-wrap">
-        <svg class="scene" data-scene="intro" viewBox="0 0 400 160" role="img" aria-label="レジに並ぶ2人のイラスト"></svg>
-      </figure>
 
       <button class="btn" type="button" data-go="stand">診断をはじめる</button>
       <p class="meta">所要 約2分 ／ 登録不要 ／ 回答は端末の外に送られません</p>
@@ -57,7 +57,7 @@
     <section class="screen" data-screen="stand" hidden>
       <p class="step">1 / 10</p>
       <h2 class="q">前の人の後ろに並びます。<br>あなたは、どこに立つ？</h2>
-      <p class="hint">いつもの自分をイメージして、金色の人を動かしてください。</p>
+      <div class="guide"><img src="assets/ikepy-head.webp" alt="" width="52" height="52"><p class="say">いつもの自分をイメージして、光っているのがキミ。スライダーで動かしてね。</p></div>
       <figure class="scene-wrap">
         <svg class="scene" data-scene="stand" viewBox="0 0 400 160" role="img" aria-label="前の人とあなたの距離"></svg>
       </figure>
@@ -72,7 +72,7 @@
     <section class="screen" data-screen="tolerance" hidden>
       <p class="step">2 / 10</p>
       <h2 class="q">今度はあなたが会計中。<br>後ろの人、どこまでなら平気？</h2>
-      <p class="hint">「これ以上近いと落ち着かない」ぎりぎりの位置に合わせてください。</p>
+      <div class="guide"><img src="assets/ikepy-head.webp" alt="" width="52" height="52"><p class="say">「これ以上近いと落ち着かない」ぎりぎりの位置に合わせてね。</p></div>
       <figure class="scene-wrap">
         <svg class="scene" data-scene="tolerance" viewBox="0 0 400 160" role="img" aria-label="あなたと後ろの人の距離"></svg>
       </figure>
@@ -87,12 +87,19 @@
     <section class="screen" data-screen="question" hidden>
       <p class="step" data-q-step></p>
       <h2 class="q" data-q-text></h2>
+      <div class="guide"><img src="assets/ikepy-head.webp" alt="" width="52" height="52"><p class="say" data-q-say></p></div>
       <ol class="choices" data-q-choices></ol>
       <button class="back" type="button" data-back>ひとつ戻る</button>
     </section>
 
     <!-- ===== 結果 ===== -->
     <section class="screen result" data-screen="result" hidden>
+      <figure class="ikepy-result" data-ikepy-type>
+        <img class="ghost" src="assets/ikepy.webp" alt="" aria-hidden="true" width="760" height="1015">
+        <img class="main" src="assets/ikepy.webp" alt="イケピー" width="760" height="1015">
+        <span class="ring" aria-hidden="true"></span>
+        <svg class="feet" viewBox="0 0 120 24" aria-hidden="true"><ellipse cx="38" cy="12" rx="16" ry="7"/><ellipse cx="82" cy="12" rx="16" ry="7"/></svg>
+      </figure>
       <p class="label">あなたの距離感タイプ</p>
       <div class="type-head">
         <span class="type-code" data-r="code"></span>
