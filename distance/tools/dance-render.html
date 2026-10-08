@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- GIF/動画書き出し用のステージ（サイトには載せない）。?dance=hop -->
+<link rel="stylesheet" href="../css/tokens.css"><link rel="stylesheet" href="../css/style.css">
+<style>html,body{margin:0;background:#0a0c0f}.box{width:540px;height:540px;display:grid;place-items:end center;padding-bottom:40px;box-sizing:border-box;overflow:hidden}
+.ikepy-hero{width:300px;margin:0}.dance-chip{display:none}</style></head><body>
+<div class="box"><figure class="ikepy-hero"><div class="stage"><span class="floor-shadow"></span><span class="dancer"><img src="../assets/ikepy.webp" width="760" height="1015"></span></div></figure></div>
+<script>document.querySelector('.dancer').setAttribute('data-dance', new URLSearchParams(location.search).get('dance')||'hop');</script>
+</body></html>

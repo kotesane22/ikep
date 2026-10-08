@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>レジ待ち距離感診断 ｜ あなたと後ろの人の、ちょうどいい距離</title>
+  <meta name="description" content="レジ待ちで前の人とどれくらい離れて立つ？後ろの人にどこまで許せる？2つのスライダーと8つの質問で、あなたの距離感をA〜Eの5タイプで診断。友だちと結果を比べられます。">
+  <meta name="theme-color" content="#0d0c0a">
+  <meta name="color-scheme" content="dark">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kotesane22.github.io/ikep/distance/">
+  <meta property="og:title" content="レジ待ち距離感診断">
+  <meta property="og:description" content="前の人との距離、後ろの人に許せる距離。あなたの距離感を5タイプで診断。">
+  <meta property="og:image" content="https://kotesane22.github.io/ikep/distance/assets/ogp.png">
+  <meta property="og:site_name" content="ikeP 通信">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="レジ待ち距離感診断">
+  <meta name="twitter:description" content="前の人との距離、後ろの人に許せる距離。あなたの距離感を5タイプで診断。">
+  <meta name="twitter:image" content="https://kotesane22.github.io/ikep/distance/assets/ogp.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="progress" data-progress hidden><span></span></div>
+
+  <main class="wrap" id="main">
+
+    <!-- ===== イントロ ===== -->
+    <section class="screen" data-screen="intro">
+      <figure class="ikepy-hero">
+        <p class="bubble">後ろの人、<br>近すぎない？</p>
+        <button class="stage" type="button" data-stage aria-label="イケピーをタップして次のダンス">
+          <span class="floor-shadow" aria-hidden="true"></span>
+          <span class="dancer" data-dance="hop"><img src="assets/ikepy.webp" alt="踊るティール色のキャラクター、イケピー" width="760" height="1015"></span>
+        </button>
+        <figcaption class="dance-chip" aria-live="polite"><b data-dance-name>ぴょんぴょん</b>タップで次のダンス</figcaption>
+      </figure>
+      <p class="label">レジ待ち距離感診断</p>
+      <h1 class="hero">その距離、<br>近い？ 遠い？</h1>
+      <p class="lead">前の人との距離。後ろの人に許せる距離。<br>2つのスライダーと8つの質問で、あなたの距離感を<br class="pc">A〜Eの5タイプで診断します。</p>
+
+      <div class="friend" data-friend hidden>
+        <p><strong data-friend-name></strong>さんから診断が届いています。<br>あなたも診断すると、2人の距離感を比べられます。</p>
+      </div>
+
+      <button class="btn" type="button" data-go="stand">診断をはじめる</button>
+      <p class="meta">所要 約2分 ／ 登録不要 ／ 回答は端末の外に送られません</p>
+    </section>
+
+    <!-- ===== スライダー1：前の人との距離 ===== -->
+    <section class="screen" data-screen="stand" hidden>
+      <p class="step">1 / 10</p>
+      <h2 class="q">前の人の後ろに並びます。<br>あなたは、どこに立つ？</h2>
+      <div class="guide"><img src="assets/ikepy-head.webp" alt="" width="52" height="52"><p class="say">いつもの自分をイメージして、光っているのがキミ。スライダーで動かしてね。</p></div>
+      <figure class="scene-wrap">
+        <svg class="scene" data-scene="stand" viewBox="0 0 400 160" role="img" aria-label="前の人とあなたの距離"></svg>
+      </figure>
+      <div class="readout"><span class="num" data-read="stand">80</span><span class="unit">cm</span><span class="zone" data-zone="stand"></span></div>
+      <p class="zone-note" data-zone-note="stand"></p>
+      <input class="range" type="range" min="20" max="200" step="5" value="80" data-range="stand" aria-label="前の人との距離（センチメートル）">
+      <div class="range-scale"><span>20cm</span><span>1m</span><span>2m</span></div>
+      <button class="btn" type="button" data-go="tolerance">次へ</button>
+    </section>
+
+    <!-- ===== スライダー2：後ろの人に許せる距離 ===== -->
+    <section class="screen" data-screen="tolerance" hidden>
+      <p class="step">2 / 10</p>
+      <h2 class="q">今度はあなたが会計中。<br>後ろの人、どこまでなら平気？</h2>
+      <div class="guide"><img src="assets/ikepy-head.webp" alt="" width="52" height="52"><p class="say">「これ以上近いと落ち着かない」ぎりぎりの位置に合わせてね。</p></div>
+      <figure class="scene-wrap">
+        <svg class="scene" data-scene="tolerance" viewBox="0 0 400 160" role="img" aria-label="あなたと後ろの人の距離"></svg>
+      </figure>
+      <div class="readout"><span class="num" data-read="tolerance">80</span><span class="unit">cm</span><span class="zone" data-zone="tolerance"></span></div>
+      <p class="zone-note" data-zone-note="tolerance"></p>
+      <input class="range" type="range" min="20" max="200" step="5" value="80" data-range="tolerance" aria-label="後ろの人に許せる距離（センチメートル）">
+      <div class="range-scale"><span>20cm</span><span>1m</span><span>2m</span></div>
+      <button class="btn" type="button" data-go="question">次へ</button>
+    </section>
+
+    <!-- ===== 質問 ===== -->
+    <section class="screen" data-screen="question" hidden>
+      <p class="step" data-q-step></p>
+      <h2 class="q" data-q-text></h2>
+      <div class="guide"><img src="assets/ikepy-head.webp" alt="" width="52" height="52"><p class="say" data-q-say></p></div>
+      <ol class="choices" data-q-choices></ol>
+      <button class="back" type="button" data-back>ひとつ戻る</button>
+    </section>
+
+    <!-- ===== 結果 ===== -->
+    <section class="screen result" data-screen="result" hidden>
+      <figure class="ikepy-result" data-ikepy-type>
+        <span class="ghost-wrap" aria-hidden="true"><span class="dancer"><img src="assets/ikepy.webp" alt="" width="760" height="1015"></span></span>
+        <button class="stage" type="button" data-stage aria-label="イケピーをタップして次のダンス">
+          <span class="floor-shadow" aria-hidden="true"></span>
+          <span class="dancer"><img src="assets/ikepy.webp" alt="踊るイケピー" width="760" height="1015"></span>
+        </button>
+        <span class="ring" aria-hidden="true"></span>
+        <svg class="feet" viewBox="0 0 120 24" aria-hidden="true"><ellipse cx="38" cy="12" rx="16" ry="7"/><ellipse cx="82" cy="12" rx="16" ry="7"/></svg>
+        <figcaption class="dance-chip" aria-live="polite"><b data-dance-name></b>タップで次のダンス</figcaption>
+      </figure>
+      <p class="label">あなたの距離感タイプ</p>
+      <div class="type-head">
+        <span class="type-code" data-r="code"></span>
+        <div>
+          <h1 class="type-name" data-r="name"></h1>
+          <p class="type-range" data-r="range"></p>
+        </div>
+      </div>
+      <p class="type-catch" data-r="catch"></p>
+
+      <figure class="scene-wrap">
+        <svg class="scene" data-scene="result" viewBox="0 0 400 170" role="img" aria-label="前の人、あなた、後ろの人の距離"></svg>
+        <figcaption>前に立つ距離 <b data-r="stand"></b>cm ／ 後ろに許す距離 <b data-r="tolerance"></b>cm</figcaption>
+      </figure>
+
+      <div class="scale" aria-label="5タイプの中での位置">
+        <div class="scale-bar" data-scale></div>
+        <div class="scale-labels"><span>近い</span><span>遠い</span></div>
+      </div>
+
+      <dl class="meters">
+        <div class="meter"><dt>せっかち度</dt><dd><span class="bar"><i data-meter="u"></i></span><b data-meter-num="u"></b></dd></div>
+        <div class="meter"><dt>気配への敏感度</dt><dd><span class="bar"><i data-meter="s"></i></span><b data-meter-num="s"></b></dd></div>
+      </dl>
+
+      <div class="block">
+        <p data-r="body"></p>
+      </div>
+      <div class="block">
+        <h3>周りからの見え方</h3>
+        <p data-r="seen"></p>
+      </div>
+      <div class="block">
+        <h3>ひとこと</h3>
+        <p data-r="tip"></p>
+      </div>
+
+      <div class="card gap">
+        <p class="card-label">前と後ろのギャップ</p>
+        <h3 data-r="gapName"></h3>
+        <p data-r="gapBody"></p>
+      </div>
+
+      <div class="card compare" data-compare hidden>
+        <p class="card-label"><span data-friend-name></span>さんとの距離感</p>
+        <div data-compare-body></div>
+      </div>
+
+      <div class="share">
+        <h3>身近な人の距離感も、聞いてみる</h3>
+        <p>リンクを送ると、相手が診断した時に2人の結果を比べられます。</p>
+        <label class="field">
+          <span>あなたの呼び名（相手の画面に表示）</span>
+          <input type="text" maxlength="12" placeholder="例：いけP" data-nick>
+        </label>
+        <div class="share-btns">
+          <button class="btn" type="button" data-share>リンクを送る</button>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" data-share-x>Xでシェア</a>
+        </div>
+        <p class="copied" data-copied hidden>リンクをコピーしました</p>
+      </div>
+
+      <section class="why">
+        <p class="label">よくある疑問</p>
+        <h2>なぜ、あんなに<br>近くまで来るの？</h2>
+        <ol class="why-list" data-why></ol>
+      </section>
+
+      <section class="all-types">
+        <p class="label">5つのタイプ</p>
+        <ul data-all-types></ul>
+      </section>
+
+      <button class="btn btn-ghost" type="button" data-restart>もう一度診断する</button>
+
+      <p class="disclaimer">この診断は、E・T・ホールの距離帯（プロクセミクス）やタイプA行動パターンなど、心理学の考え方をヒントにした遊びのための診断です。医学的・心理学的な検査ではありません。</p>
+    </section>
+
+  </main>
+
+  <footer class="foot wrap">
+    <a href="../">ikeP 通信</a>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
